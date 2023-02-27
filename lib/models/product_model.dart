@@ -66,7 +66,7 @@ List<ProductModel> demoPopularProducts = [
   // ),
 ];
 List<ProductModel> demoFlashSaleProducts = [
- /* ProductModel(
+  /* ProductModel(
     image: productDemoImg5,
     title: "FS - Nike Air Max 270 Really React",
     brandName: "Lipsy london",
@@ -118,7 +118,7 @@ List<ProductModel> demoBestSellersProducts = [
   ),*/
 ];
 List<ProductModel> kidsProducts = [
- /* ProductModel(
+  /* ProductModel(
     image: "https://i.imgur.com/dbbT6PA.png",
     title: "Green Poplin Ruched Front",
     brandName: "Lipsy london",

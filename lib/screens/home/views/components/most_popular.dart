@@ -29,21 +29,22 @@ class MostPopular extends StatelessWidget {
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             // Find demoPopularProducts on models/ProductModel.dart
-            itemCount: demoPopularProducts.length,
+            itemCount: demoFlashSaleProducts.length,
             itemBuilder: (context, index) => Padding(
               padding: EdgeInsets.only(
                 left: defaultPadding,
-                right: index == demoPopularProducts.length - 1
+                right: index == demoFlashSaleProducts.length - 1
                     ? defaultPadding
                     : 0,
               ),
               child: SecondaryProductCard(
-                image: demoPopularProducts[index].image,
-                brandName: demoPopularProducts[index].brandName,
-                title: demoPopularProducts[index].title,
-                price: demoPopularProducts[index].price,
-                priceAfetDiscount: demoPopularProducts[index].priceAfetDiscount,
-                dicountpercent: demoPopularProducts[index].dicountpercent,
+                image: demoFlashSaleProducts[index].image,
+                brandName: demoFlashSaleProducts[index].brandName,
+                title: demoFlashSaleProducts[index].title,
+                price: demoFlashSaleProducts[index].price,
+                priceAfetDiscount:
+                    demoFlashSaleProducts[index].priceAfetDiscount,
+                dicountpercent: demoFlashSaleProducts[index].dicountpercent,
                 press: () {},
               ),
             ),

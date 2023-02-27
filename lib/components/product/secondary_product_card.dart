@@ -90,29 +90,31 @@ class SecondaryProductCard extends StatelessWidget {
                   ),
                   const Spacer(),
                   priceAfetDiscount != null
-                      ? Row(
-                          children: [
-                            Text(
-                              "\$" + priceAfetDiscount.toString(),
-                              style: const TextStyle(
-                                color: Color(0xFF31B0D8),
-                                fontWeight: FontWeight.w500,
-                                fontSize: 12,
+                      ? FittedBox(
+                          child: Row(
+                            children: [
+                              Text(
+                                priceAfetDiscount.toString(),
+                                style: const TextStyle(
+                                  color: Color(0xFF31B0D8),
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                            const SizedBox(width: defaultPadding / 4),
-                            Text(
-                              "\$" + price.toString(),
-                              style: TextStyle(
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .color,
-                                fontSize: 10,
-                                decoration: TextDecoration.lineThrough,
+                              const SizedBox(width: defaultPadding / 4),
+                              Text(
+                                price.toString(),
+                                style: TextStyle(
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .color,
+                                  fontSize: 10,
+                                  decoration: TextDecoration.lineThrough,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         )
                       : Text(
                           "\$" + price.toString(),
