@@ -143,7 +143,7 @@ class Commons {
           automatic
               ? null
               : CustomSnackBar.showCustomInfoSnack(
-                  context, "Something Went Wrong");
+                  context, "ghghgh");
         } else {
           // if (data.status == 404) {
             // CustomSnackBar.showCustomInfoSnack(context, data.message!);
@@ -179,7 +179,7 @@ class Commons {
           automatic!
               ? null
               : CustomSnackBar.showCustomInfoSnack(
-                  context, "something went wrong");
+                  context, "hg went wrong");
         }
         automatic ? null : Get.back();
         // Navigator.pop(context);
@@ -188,7 +188,7 @@ class Commons {
         automatic!
             ? null
             : CustomSnackBar.showCustomInfoSnack(
-                context, "Something went wrong");
+                context, "fhggh went wrong");
         // Navigator.pop(context);
 
         automatic ? null : Get.back();

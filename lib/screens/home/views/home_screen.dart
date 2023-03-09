@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:shop/components/Banner/L/banner_l_style_1.dart';
+import 'package:shop/components/Banner/M/banner_m.dart';
 import 'package:shop/components/Banner/S/banner_s_style_1.dart';
 import 'package:shop/components/Banner/S/banner_s_style_4.dart';
 import 'package:shop/components/Banner/S/banner_s_style_5.dart';
 import 'package:shop/constants.dart';
 import 'package:shop/route/screen_export.dart';
+import 'package:shop/screens/home/views/components/bundles.dart';
+import 'package:shop/screens/home/views/components/featured_toys.dart';
 
 import '../../../models/card_product_model.dart';
 import '../../../models/product_model.dart';
@@ -56,7 +59,30 @@ class _HomeScreenState extends State<HomeScreen> {
                   vertical: defaultPadding * 1.5, horizontal: 10),
               sliver: SliverToBoxAdapter(child: PecoWare()),
             ),
-            SliverToBoxAdapter(
+            const SliverPadding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              sliver: SliverToBoxAdapter(child: Bundles()),
+            ),
+            const SliverPadding(
+              padding: EdgeInsets.symmetric(
+                  vertical: defaultPadding * 1.5, horizontal: 10),
+              sliver: SliverToBoxAdapter(child: PecoWare()),
+            ),
+            const SliverPadding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              sliver: SliverToBoxAdapter(child: Bundles()),
+            ),
+            const SliverPadding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              sliver: SliverToBoxAdapter(child: Bundles()),
+            ),
+            const SliverPadding(
+              padding: EdgeInsets.symmetric(
+                  vertical: defaultPadding * 1.5, horizontal: 10),
+              sliver: SliverToBoxAdapter(child: PecoWare()),
+            ),
+            SliverToBoxAdapter(child: FeaturedToys()),
+            /*SliverToBoxAdapter(
               child: Column(
                 children: [
                   // While loading use 👇
@@ -94,10 +120,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-            ),
-            const SliverToBoxAdapter(child: BestSellers()),
-            const SliverToBoxAdapter(child: MostPopular()),
-            SliverToBoxAdapter(
+            ),*/
+            // const SliverToBoxAdapter(child: BestSellers()),
+            // const SliverToBoxAdapter(child: MostPopular()),
+            /*SliverToBoxAdapter(
               child: Column(
                 children: [
                   const SizedBox(height: defaultPadding * 1.5),
@@ -135,8 +161,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-            ),
-            const SliverToBoxAdapter(child: BestSellers()),
+            ),*/
+            // const SliverToBoxAdapter(child: BestSellers()),
           ],
         ),
       ),

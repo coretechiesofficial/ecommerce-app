@@ -25,7 +25,10 @@ class OffersCarouselAndCategories extends StatelessWidget {
             children: [
               Text(
                 "Categories",
-                style: Theme.of(context).textTheme.titleSmall,
+                style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
               ),
               Text(
                 "See All    >",

@@ -71,7 +71,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           context,
                           entryPointScreenRoute,
                           ModalRoute.withName(logInScreenRoute));
-                      // _onLoginPressed();
                     },
                     child: const Text("Log in"),
                   ),

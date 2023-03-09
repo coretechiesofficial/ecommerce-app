@@ -86,7 +86,7 @@ class _OffersCarouselState extends State<OffersCarousel> {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
-              color: Colors.red,
+              // color: Colors.red,
             ),
             height: 200,
             width: Get.width,

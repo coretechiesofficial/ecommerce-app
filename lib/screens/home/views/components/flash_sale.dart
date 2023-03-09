@@ -25,9 +25,9 @@ class PecoWare extends StatelessWidget {
         ),
         const SizedBox(height: defaultPadding / 2),
         Padding(
-          padding: const EdgeInsets.all(defaultPadding),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
           child: Text(
-            "Pecoware for Girls!",
+            "Pecoware for Girls   😻 ",
             style: TextStyle(
                 fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
           ),
@@ -52,8 +52,8 @@ class PecoWare extends StatelessWidget {
                 brandName: '',
                 title: demoFlashSaleProducts[index].title,
                 price: demoFlashSaleProducts[index].price,
-                priceAfetDiscount:
-                    demoFlashSaleProducts[index].priceAfetDiscount,
+                // priceAfetDiscount:
+                //     demoFlashSaleProducts[index].priceAfetDiscount,
                 // dicountpercent: demoFlashSaleProducts[index].dicountpercent,
                 press: () {
                   Navigator.pushNamed(context, productDetailsScreenRoute,

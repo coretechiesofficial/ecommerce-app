@@ -35,7 +35,7 @@ class _EntryPointState extends State<EntryPoint> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    getPopularProduct();
+    // getPopularProduct();
   }
 
   @override
