@@ -9,6 +9,7 @@ import 'package:shop/route/screen_export.dart';
 import 'package:shop/screens/checkout/views/empty_cart_screen.dart';
 
 import 'services/cart_api.dart';
+import 'services/home_api.dart';
 
 class EntryPoint extends StatefulWidget {
   const EntryPoint({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class EntryPoint extends StatefulWidget {
 }
 
 class _EntryPointState extends State<EntryPoint> {
-  final List _pages = const[
+  final List _pages = const [
     HomeScreen(),
     DiscoverScreen(),
     BookmarkScreen(),
@@ -34,7 +35,7 @@ class _EntryPointState extends State<EntryPoint> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    getCartProduct();
+    getPopularProduct();
   }
 
   @override
@@ -158,29 +159,45 @@ class _EntryPointState extends State<EntryPoint> {
   }
 
   //MARK: API METHODS
-  getCartProduct() async {
-    FlutterSecureStorage storage = const FlutterSecureStorage();
-    String? apiToken = await storage.read(key: 'api_token');
+  getPopularProduct() async {
     try {
-      await CartApi.cartView(context: context, apiToken: apiToken!)
-          .then((dioResult) async {
+      await HomeApi.product(context: context).then((dioResult) async {
         if (dioResult != null) {
-          cartDetails = dioResult.data;
+          List popularProducts1 = dioResult.data;
           setState(() {
-            demoPopularProducts.clear();
-            cartDetails['products'].map((e) {
-              demoPopularProducts.add(ProductModel(
-                  image:
-                      'https://opencart.ctportfolio.in/image/cache/catalog/demo/apple_cinema_30-228x228.jpg',
+            popularProducts1.map((e) {
+              demoFlashSaleProducts.add(ProductModel(
+                  image: e['thumb'],
                   brandName: e['name'],
-                  title: e['name'],
-                  priceAfetDiscount: e['price'],
+                  title: e['description'],
+                  priceAfetDiscount:
+                      e['special'] == false ? e['price'] : e['special'],
+                  dicountpercent: 20,
+                  price: e['price']));
+              demoBestSellersProducts.add(ProductModel(
+                  image: e['thumb'],
+                  brandName: e['name'],
+                  title: e['description'],
+                  priceAfetDiscount:
+                      e['special'] == false ? e['price'] : e['special'],
+                  dicountpercent: 20,
+                  price: e['price']));
+              kidsProducts.add(ProductModel(
+                  image: e['thumb'],
+                  brandName: e['name'],
+                  title: e['description'],
+                  priceAfetDiscount:
+                      e['special'] == false ? e['price'] : e['special'],
                   dicountpercent: 20,
                   price: e['price']));
             }).toList();
           });
-
-          setState(() {});
+          // _isLoading = true;
+          setState(() {
+            demoFlashSaleProducts;
+            demoBestSellersProducts;
+            kidsProducts;
+          });
         }
       });
     } catch (e) {

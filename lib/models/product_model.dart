@@ -121,7 +121,7 @@ List<ProductModel> demoBestSellersProducts = [
   ),
 ];
 List<ProductModel> kidsProducts = [
-  ProductModel(
+ /* ProductModel(
     image: "https://i.imgur.com/dbbT6PA.png",
     title: "Green Poplin Ruched Front",
     brandName: "Lipsy london",
