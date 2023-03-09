@@ -161,4 +161,5 @@ List<ProductModel> kidsProducts = [
     brandName: "Lipsy london",
     price: "250",
   ),
+];*/
 ];
