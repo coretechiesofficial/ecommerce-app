@@ -10,7 +10,8 @@ import 'banner_m.dart';
 class BannerMWithCounter extends StatefulWidget {
   const BannerMWithCounter({
     Key? key,
-    this.image = "https://i.imgur.com/pRgcbpS.png",
+    this.image =
+        "https://media.gettyimages.com/id/1215876442/photo/topshot-a-boy-wearing-a-face-mask-drives-a-toy-car-across-piazza-navona-in-rome-on-may-28.jpg?s=612x612&w=0&k=20&c=abBPIw927djUOJj8ymaigqlABe0Fui1zxWSf4OosY84=",
     required this.text,
     required this.duration,
     required this.press,

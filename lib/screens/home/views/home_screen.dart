@@ -6,11 +6,13 @@ import 'package:shop/components/Banner/S/banner_s_style_5.dart';
 import 'package:shop/constants.dart';
 import 'package:shop/route/screen_export.dart';
 
+import '../../../models/card_product_model.dart';
 import '../../../models/product_model.dart';
 import '../../../services/home_api.dart';
 import '../../../utils/commons.dart';
 import 'components/best_sellers.dart';
 import 'components/flash_sale.dart';
+import 'components/homecategories.dart';
 import 'components/most_popular.dart';
 import 'components/offer_carousel_and_categories.dart';
 import 'components/popular_products.dart';
@@ -29,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    getPopularProduct();
+    // getPopularProduct();
   }
 
   @override
@@ -38,14 +40,21 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
+            const SliverToBoxAdapter(child: HomeCategories()),
             const SliverToBoxAdapter(child: OffersCarouselAndCategories()),
-            SliverToBoxAdapter(
-                child: PopularProducts(
-              popularProducts: popularProducts != null ? popularProducts! : [],
-            )),
+            SliverPadding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              sliver: SliverToBoxAdapter(
+                  child: CardProduct(
+
+                      // popularProducts: popularProducts != null ? popularProducts! : [],
+                      // demoPopularProducts: demoPopularProducts,
+                      )),
+            ),
             const SliverPadding(
-              padding: EdgeInsets.symmetric(vertical: defaultPadding * 1.5),
-              sliver: SliverToBoxAdapter(child: FlashSale()),
+              padding: EdgeInsets.symmetric(
+                  vertical: defaultPadding * 1.5, horizontal: 10),
+              sliver: SliverToBoxAdapter(child: PecoWare()),
             ),
             SliverToBoxAdapter(
               child: Column(

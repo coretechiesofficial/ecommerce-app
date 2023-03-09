@@ -39,7 +39,7 @@ class CancledOrdersScreen extends StatelessWidget {
                 child: SecondaryProductCard(
                   image: demoPopularProducts[cancledIndex + index].image,
                   brandName:
-                      demoPopularProducts[cancledIndex + index].brandName,
+                      demoPopularProducts[cancledIndex + index].brandName!,
                   title: demoPopularProducts[cancledIndex + index].title,
                   price: demoPopularProducts[cancledIndex + index].price,
                   priceAfetDiscount: demoPopularProducts[cancledIndex + index]

@@ -9,7 +9,8 @@ import '../../../constants.dart';
 class BannerMStyle3 extends StatelessWidget {
   const BannerMStyle3({
     Key? key,
-    this.image = "https://i.imgur.com/8REExBV.png",
+    this.image =
+        "https://media.gettyimages.com/id/168858709/photo/selina-plays-on-a-slide-in-a-giant-shoe-in-barbies-bedroom-at-the-barbie-dreamhouse-experience.jpg?s=612x612&w=0&k=20&c=RhVIdOaROeggVo5FEps9p22sCsHZGQ_WQVrHPuzpXmY=",
     required this.title,
     required this.press,
     required this.discountParcent,

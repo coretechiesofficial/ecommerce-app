@@ -90,7 +90,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       right: defaultPadding),
                   child: SecondaryProductCard(
                     image: demoPopularProducts[index].image,
-                    brandName: demoPopularProducts[index].brandName,
+                    brandName: demoPopularProducts[index].brandName!,
                     title: demoPopularProducts[index].title,
                     price: demoPopularProducts[index].price,
                     priceAfetDiscount:
@@ -112,10 +112,10 @@ class OrderDetailsScreen extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.all(defaultPadding),
                 child: OrderSummaryCard(
-                  subTotal: 169.0,
-                  discount: 10,
-                  totalWithVat: 185,
-                  vat: 5,
+                  subTotal: '169.0',
+                  discount: '10',
+                  totalWithVat: '185',
+                  vat: '5',
                 ),
               ),
               const Padding(

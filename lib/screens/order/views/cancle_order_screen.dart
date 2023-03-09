@@ -45,7 +45,7 @@ class CancleOrderScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: defaultPadding),
                       child: SecondaryProductCard(
                         image: demoPopularProducts[index].image,
-                        brandName: demoPopularProducts[index].brandName,
+                        brandName: demoPopularProducts[index].brandName!,
                         title: demoPopularProducts[index].title,
                         price: demoPopularProducts[index].price,
                         priceAfetDiscount:

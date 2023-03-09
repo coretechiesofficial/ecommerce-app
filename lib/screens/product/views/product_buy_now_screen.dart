@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop/components/cart_button.dart';
 import 'package:shop/components/custom_modal_bottom_sheet.dart';
@@ -9,6 +10,7 @@ import 'package:shop/screens/product/views/location_permission_store_availabilit
 import 'package:shop/screens/product/views/size_guide_screen.dart';
 
 import '../../../constants.dart';
+import '../../../services/cart_api.dart';
 import 'components/product_quantity.dart';
 import 'components/selected_colors.dart';
 import 'components/selected_size.dart';
@@ -22,6 +24,7 @@ class ProductBuyNowScreen extends StatefulWidget {
 }
 
 class _ProductBuyNowScreenState extends State<ProductBuyNowScreen> {
+  dynamic addCart;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,11 +33,7 @@ class _ProductBuyNowScreenState extends State<ProductBuyNowScreen> {
         title: "Add to cart",
         subTitle: "Total price",
         press: () {
-          customModalBottomSheet(
-            context,
-            isDismissible: false,
-            child: const AddedToCartMessageScreen(),
-          );
+          addCartProduct();
         },
       ),
       body: Column(
@@ -152,13 +151,7 @@ class _ProductBuyNowScreenState extends State<ProductBuyNowScreen> {
                     title: "Check stores",
                     svgSrc: "assets/icons/Stores.svg",
                     isShowBottomBorder: true,
-                    press: () {
-                      customModalBottomSheet(
-                        context,
-                        height: MediaQuery.of(context).size.height * 0.92,
-                        child: const LocationPermissonStoreAvailabilityScreen(),
-                      );
-                    },
+                    press: () {},
                   ),
                 ),
                 const SliverToBoxAdapter(
@@ -169,5 +162,26 @@ class _ProductBuyNowScreenState extends State<ProductBuyNowScreen> {
         ],
       ),
     );
+  }
+
+  //MARK: API METHODS
+  addCartProduct() async {
+    FlutterSecureStorage storage = const FlutterSecureStorage();
+    String? apiToken = await storage.read(key: 'api_token');
+    try {
+      await CartApi.addCart(
+              context: context, apiToken: apiToken!, route: "api/cart/add")
+          .then((dioResult) async {
+        if (dioResult != null) {
+          customModalBottomSheet(
+            context,
+            isDismissible: false,
+            child: const AddedToCartMessageScreen(),
+          );
+        }
+      });
+    } catch (e) {
+      print(e);
+    }
   }
 }

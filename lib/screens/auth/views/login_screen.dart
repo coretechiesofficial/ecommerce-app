@@ -67,7 +67,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      _onLoginPressed();
+                      Navigator.pushNamedAndRemoveUntil(
+                          context,
+                          entryPointScreenRoute,
+                          ModalRoute.withName(logInScreenRoute));
+                      // _onLoginPressed();
                     },
                     child: const Text("Log in"),
                   ),
@@ -92,25 +96,25 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  _onLoginPressed() {
-    if (_formKey.currentState!.validate()) {
-      OnBoardingApi.login(
-              username: 'Default',
-              key:
-                  'C7BFUfNI2v3WFEJbUxbebHm2F1WLe82W38vpI8HZVzCRKLNwKmsVkCZRmwzQC7GtOnKy15m6UmWXVc8scQPNEQwV26kpkk1OUiqai7OB0mdttFLf7KRiDzisPhGoopiyUm2t3bIH5tOYFwlDcxVhsRLn4fyblTIQxDmy248HecwpINEwRtbR4Um8fblvitXzFROBrksVS6Y8uDqWKVxjRkwjPsYF7EvVEZWp0W7MtWZbSRb6343ZUB1FQlj4DCqh',
-              context: context)
-          .then((dioResult) async {
-        if (dioResult != null) {
-          FlutterSecureStorage storage = const FlutterSecureStorage();
+  // _onLoginPressed() {
+  //   if (_formKey.currentState!.validate()) {
+  //     OnBoardingApi.login(
+  //             username: 'Default',
+  //             key:
+  //                 'C7BFUfNI2v3WFEJbUxbebHm2F1WLe82W38vpI8HZVzCRKLNwKmsVkCZRmwzQC7GtOnKy15m6UmWXVc8scQPNEQwV26kpkk1OUiqai7OB0mdttFLf7KRiDzisPhGoopiyUm2t3bIH5tOYFwlDcxVhsRLn4fyblTIQxDmy248HecwpINEwRtbR4Um8fblvitXzFROBrksVS6Y8uDqWKVxjRkwjPsYF7EvVEZWp0W7MtWZbSRb6343ZUB1FQlj4DCqh',
+  //             context: context)
+  //         .then((dioResult) async {
+  //       if (dioResult != null) {
+  //         FlutterSecureStorage storage = const FlutterSecureStorage();
 
-          await storage.write(
-              key: "api_token", value: dioResult.data['api_token']);
-          Navigator.pushNamedAndRemoveUntil(context, entryPointScreenRoute,
-              ModalRoute.withName(logInScreenRoute));
-        } else {
-          CustomSnackBar.showCustomInfoSnack(context, 'Something Went Wrong');
-        }
-      });
-    }
-  }
+  //         await storage.write(
+  //             key: "api_token", value: dioResult.data['api_token']);
+  //         Navigator.pushNamedAndRemoveUntil(context, entryPointScreenRoute,
+  //             ModalRoute.withName(logInScreenRoute));
+  //       } else {
+  //         CustomSnackBar.showCustomInfoSnack(context, 'Something Went Wrong');
+  //       }
+  //     });
+  //   }
+  // }
 }

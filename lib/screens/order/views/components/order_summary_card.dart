@@ -6,13 +6,13 @@ class OrderSummaryCard extends StatelessWidget {
   const OrderSummaryCard({
     Key? key,
     required this.subTotal,
-    this.shippingFee = 0,
+    this.shippingFee = '0',
     required this.totalWithVat,
     required this.vat,
     this.discount,
   }) : super(key: key);
-  final double subTotal, shippingFee, totalWithVat, vat;
-  final double? discount;
+  final String subTotal, shippingFee, totalWithVat, vat;
+  final String? discount;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class OrderSummaryCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: defaultPadding / 2),
             child: OrderSummaryText(
               leadingText: "Subtotal",
-              trilingText: "\$$subTotal",
+              trilingText: " $subTotal",
             ),
           ),
           OrderSummaryText(
@@ -50,12 +50,12 @@ class OrderSummaryCard extends StatelessWidget {
           const Divider(height: defaultPadding * 2),
           OrderSummaryText(
             leadingText: "Total (Include of VAT)",
-            trilingText: "\$$totalWithVat",
+            trilingText: "$totalWithVat",
           ),
           const SizedBox(height: defaultPadding / 2),
           OrderSummaryText(
             leadingText: "Estimated VAT",
-            trilingText: "\$$vat",
+            trilingText: "$vat",
           ),
         ],
       ),

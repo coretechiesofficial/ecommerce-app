@@ -36,7 +36,7 @@ class DelivereOrdersdScreen extends StatelessWidget {
                 child: SecondaryProductCard(
                   image: demoPopularProducts[deliveredIndex + index].image,
                   brandName:
-                      demoPopularProducts[deliveredIndex + index].brandName,
+                      demoPopularProducts[deliveredIndex + index].brandName!,
                   title: demoPopularProducts[deliveredIndex + index].title,
                   price: demoPopularProducts[deliveredIndex + index].price,
                   priceAfetDiscount: demoPopularProducts[deliveredIndex + index]

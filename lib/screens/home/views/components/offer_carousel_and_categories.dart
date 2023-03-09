@@ -16,18 +16,28 @@ class OffersCarouselAndCategories extends StatelessWidget {
       children: [
         // While loading use 👇
         // const OffersSkelton(),
+        const SizedBox(height: defaultPadding),
         const OffersCarousel(),
-        const SizedBox(height: defaultPadding / 2),
         Padding(
           padding: const EdgeInsets.all(defaultPadding),
-          child: Text(
-            "Categories",
-            style: Theme.of(context).textTheme.titleSmall,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Categories",
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+              Text(
+                "See All    >",
+                style: TextStyle(
+                    color: Colors.blueAccent, fontWeight: FontWeight.w500),
+              ),
+            ],
           ),
         ),
         // While loading use 👇
         // const CategoriesSkelton(),
-        const Categories(),
+        // const Categories(),
       ],
     );
   }

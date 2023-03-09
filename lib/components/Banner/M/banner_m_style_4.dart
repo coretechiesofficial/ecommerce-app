@@ -9,7 +9,8 @@ import '../../../constants.dart';
 class BannerMStyle4 extends StatelessWidget {
   const BannerMStyle4({
     Key? key,
-    this.image = "https://i.imgur.com/R4iKkDD.png",
+    this.image =
+        "https://media.gettyimages.com/id/51067161/photo/slp99090201-02-september-1999-brentwood-missouri-usa-little-five-year-old-adam-kalina-has-an.jpg?s=612x612&w=0&k=20&c=LV_rE0IpgNKaMi0aoY2WsHFYM01OQg4yJzlMz5yjlOA=",
     required this.title,
     required this.press,
     required this.discountParcent,

@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:shop/components/Banner/M/banner_m_style_1.dart';
 import 'package:shop/components/Banner/M/banner_m_style_2.dart';
 import 'package:shop/components/Banner/M/banner_m_style_3.dart';
@@ -30,20 +32,20 @@ class _OffersCarouselState extends State<OffersCarousel> {
       press: () {},
     ),
     BannerMStyle2(
-      title: "Black \nfriday",
-      subtitle: "Collection",
+      title: "Find their hidden talent",
+      subtitle: "My little beauty creator",
       discountParcent: 50,
       press: () {},
     ),
-    BannerMStyle3(
-      title: "Grab \nyours now",
-      discountParcent: 50,
-      press: () {},
-    ),
+    // BannerMStyle3(
+    //   title: "Grab \nyours now",
+    //   discountParcent: 50,
+    //   press: () {},
+    // ),
     BannerMStyle4(
       // image: , user your image
-      title: "SUMMER \nSALE",
-      subtitle: "SPECIAL OFFER",
+      title: "Find their hidden talent",
+      subtitle: "My little racer",
       discountParcent: 80,
       press: () {},
     ),
@@ -77,47 +79,54 @@ class _OffersCarouselState extends State<OffersCarousel> {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1.87,
-      child: Stack(
-        alignment: Alignment.bottomRight,
-        children: [
-          PageView.builder(
-            controller: _pageController,
-            itemCount: offers.length,
-            onPageChanged: (int index) {
-              setState(() {
-                _selectedIndex = index;
-              });
-            },
-            itemBuilder: (context, index) => offers[index],
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+              color: Colors.red,
+            ),
+            height: 200,
+            width: Get.width,
+            child: PageView.builder(
+              allowImplicitScrolling: true,
+              controller: _pageController,
+              itemCount: offers.length,
+              onPageChanged: (int index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
+              itemBuilder: (context, index) => offers[index],
+            ),
           ),
-          FittedBox(
-            child: Padding(
-              padding: const EdgeInsets.all(defaultPadding),
-              child: SizedBox(
-                height: 16,
-                child: Row(
-                  children: List.generate(
-                    offers.length,
-                    (index) {
-                      return Padding(
-                        padding:
-                            const EdgeInsets.only(left: defaultPadding / 4),
-                        child: DotIndicator(
-                          isActive: index == _selectedIndex,
-                          activeColor: Colors.white70,
-                          inActiveColor: Colors.white54,
-                        ),
-                      );
-                    },
-                  ),
+        ),
+        FittedBox(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: SizedBox(
+              height: 10,
+              child: Row(
+                children: List.generate(
+                  offers.length,
+                  (index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(left: defaultPadding / 4),
+                      child: DotIndicator(
+                        isActive: index == _selectedIndex,
+                        activeColor: Colors.black,
+                        inActiveColor: Colors.black12,
+                      ),
+                    );
+                  },
                 ),
               ),
             ),
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }

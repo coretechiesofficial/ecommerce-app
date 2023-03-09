@@ -42,7 +42,7 @@ class OnSaleScreen extends StatelessWidget {
             const SliverPadding(
               padding: EdgeInsets.only(top: defaultPadding),
               sliver: SliverToBoxAdapter(
-                child: FlashSale(),
+                child: PecoWare(),
               ),
             ),
             SliverPadding(

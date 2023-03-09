@@ -23,7 +23,7 @@ class _CartScreenState extends State<CartScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    getCartProduct();
+    // getCartProduct();
     super.initState();
   }
 
@@ -72,18 +72,22 @@ class _CartScreenState extends State<CartScreen> {
                     child: CouponCode(),
                   ),
 
-                  const SliverPadding(
-                    padding:
-                        EdgeInsets.symmetric(vertical: defaultPadding * 1.5),
-                    sliver: SliverToBoxAdapter(
-                      child: OrderSummaryCard(
-                        subTotal: 169.0,
-                        discount: 10,
-                        totalWithVat: 185,
-                        vat: 5,
-                      ),
-                    ),
-                  ),
+                  cartDetails != null
+                      ? SliverPadding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: defaultPadding * 1.5),
+                          sliver: SliverToBoxAdapter(
+                            child: OrderSummaryCard(
+                              subTotal:
+                                  cartDetails['totals'][0]['text'].toString(),
+                              discount: 10.toString(),
+                              totalWithVat:
+                                  cartDetails['totals'][3]['text'].toString(),
+                              vat: cartDetails['totals'][2]['text'].toString(),
+                            ),
+                          ),
+                        )
+                      : SliverPadding(padding: EdgeInsets.zero),
                   SliverPadding(
                     padding:
                         const EdgeInsets.symmetric(vertical: defaultPadding),
@@ -135,6 +139,7 @@ class _CartScreenState extends State<CartScreen> {
         if (dioResult != null) {
           cartDetails = dioResult.data;
           setState(() {
+            demoPopularProducts.clear();
             cartDetails['products'].map((e) {
               demoPopularProducts.add(ProductModel(
                   image:

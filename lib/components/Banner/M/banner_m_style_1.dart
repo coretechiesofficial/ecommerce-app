@@ -6,7 +6,7 @@ import '../../../constants.dart';
 class BannerMStyle1 extends StatelessWidget {
   const BannerMStyle1({
     Key? key,
-    this.image = "https://i.imgur.com/UP7xhPG.png",
+    this.image = "https://media.gettyimages.com/id/1237483283/photo/barbie-dolls-are-seen-at-the-toy-shop-in-krakow-poland-on-december-30-2021.jpg?s=612x612&w=0&k=20&c=BDuX_rJQL45fPOjhd9BJcQ0Fh-688htaUe46iknd2Vg=",
     required this.text,
     required this.press,
   }) : super(key: key);

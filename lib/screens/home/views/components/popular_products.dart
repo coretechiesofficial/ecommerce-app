@@ -6,10 +6,10 @@ import 'package:shop/route/screen_export.dart';
 import '../../../../constants.dart';
 
 class PopularProducts extends StatelessWidget {
-  List<ProductModel>? popularProducts;
+  List<ProductModel>? demoPopularProducts;
   PopularProducts({
     Key? key,
-    this.popularProducts,
+    this.demoPopularProducts,
   }) : super(key: key);
 
   @override
@@ -18,13 +18,13 @@ class PopularProducts extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: defaultPadding / 2),
-        Padding(
+        /* Padding(
           padding: const EdgeInsets.all(defaultPadding),
           child: Text(
             "Popular products",
             style: Theme.of(context).textTheme.titleSmall,
           ),
-        ),
+        ),*/
         // While loading use 👇
         // const ProductsSkelton(),
         SizedBox(
@@ -32,20 +32,22 @@ class PopularProducts extends StatelessWidget {
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             // Find demoPopularProducts on models/ProductModel.dart
-            itemCount: popularProducts!.length,
+            itemCount: demoPopularProducts!.length,
             itemBuilder: (context, index) => Padding(
               padding: EdgeInsets.only(
                 left: defaultPadding,
-                right:
-                    index == popularProducts!.length - 1 ? defaultPadding : 0,
+                right: index == demoPopularProducts!.length - 1
+                    ? defaultPadding
+                    : 0,
               ),
               child: ProductCard(
-                image: popularProducts![index].image,
-                brandName: popularProducts![index].brandName,
-                title: popularProducts![index].title,
-                price: popularProducts![index].price,
-                priceAfetDiscount: popularProducts![index].priceAfetDiscount,
-                dicountpercent: popularProducts![index].dicountpercent,
+                image: demoPopularProducts![index].image,
+                brandName: demoPopularProducts![index].brandName!,
+                title: demoPopularProducts![index].title,
+                price: demoPopularProducts![index].price,
+                priceAfetDiscount:
+                    demoPopularProducts![index].priceAfetDiscount,
+                dicountpercent: demoPopularProducts![index].dicountpercent,
                 press: () {
                   Navigator.pushNamed(context, productDetailsScreenRoute,
                       arguments: index.isEven);

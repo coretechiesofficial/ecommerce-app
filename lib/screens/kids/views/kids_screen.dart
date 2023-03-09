@@ -84,7 +84,7 @@ class KidsScreen extends StatelessWidget {
                   (BuildContext context, int index) {
                     return ProductCard(
                       image: kidsProducts[index].image,
-                      brandName: kidsProducts[index].brandName,
+                      brandName: kidsProducts[index].brandName!,
                       title: kidsProducts[index].title,
                       price: kidsProducts[index].price,
                       priceAfetDiscount: kidsProducts[index].priceAfetDiscount,

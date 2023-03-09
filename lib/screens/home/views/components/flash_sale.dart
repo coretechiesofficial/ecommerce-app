@@ -6,8 +6,8 @@ import '../../../../components/product/product_card.dart';
 import '../../../../constants.dart';
 import '../../../../models/product_model.dart';
 
-class FlashSale extends StatelessWidget {
-  const FlashSale({
+class PecoWare extends StatelessWidget {
+  const PecoWare({
     Key? key,
   }) : super(key: key);
 
@@ -20,15 +20,16 @@ class FlashSale extends StatelessWidget {
         // const BannerMWithCounterSkelton(),
         BannerMWithCounter(
           duration: const Duration(hours: 8),
-          text: "Super Flash Sale \n50% Off",
+          text: "My little artist \nFind their hidden talent",
           press: () {},
         ),
         const SizedBox(height: defaultPadding / 2),
         Padding(
           padding: const EdgeInsets.all(defaultPadding),
           child: Text(
-            "Flash sale",
-            style: Theme.of(context).textTheme.titleSmall,
+            "Pecoware for Girls!",
+            style: TextStyle(
+                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
           ),
         ),
         // While loading show 👇
@@ -48,12 +49,12 @@ class FlashSale extends StatelessWidget {
               ),
               child: ProductCard(
                 image: demoFlashSaleProducts[index].image,
-                brandName: demoFlashSaleProducts[index].brandName,
+                brandName: '',
                 title: demoFlashSaleProducts[index].title,
                 price: demoFlashSaleProducts[index].price,
                 priceAfetDiscount:
                     demoFlashSaleProducts[index].priceAfetDiscount,
-                dicountpercent: demoFlashSaleProducts[index].dicountpercent,
+                // dicountpercent: demoFlashSaleProducts[index].dicountpercent,
                 press: () {
                   Navigator.pushNamed(context, productDetailsScreenRoute,
                       arguments: index.isEven);
